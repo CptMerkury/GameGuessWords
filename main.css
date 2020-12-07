@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap");
+* {
+  margin: 0 auto;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: -0.2px; }
+
+body, html {
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); }
+
+.headerBlock {
+  height: 80px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .headerBlock .headerTitle {
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    color: #000;
+    opacity: 0.5; }
+
+.mainBlock {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%); }
+  .mainBlock .gameBlock {
+    min-width: 40%;
+    text-align: center; }
+    .mainBlock .gameBlock #rules {
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 5%;
+      color: dodgerblue; }
+    .mainBlock .gameBlock #word {
+      font-size: 56px;
+      font-weight: 300;
+      margin-bottom: 5%; }
+    .mainBlock .gameBlock #answerInput {
+      border: 1px solid #8e8e8e;
+      border-radius: 5px;
+      width: 30%;
+      height: 50px;
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 1%; }
+    .mainBlock .gameBlock #answerInput:active {
+      text-decoration: none;
+      border: 1px solid dodgerblue; }
+    .mainBlock .gameBlock .submitButton {
+      width: 80px;
+      height: 40px;
+      border-radius: 5px;
+      border: none;
+      background-color: lightseagreen;
+      color: white; }
+    .mainBlock .gameBlock .exitButton {
+      width: 80px;
+      height: 40px;
+      border-radius: 5px;
+      border: none;
+      background-color: crimson;
+      color: white; }
+    .mainBlock .gameBlock .disclaimer {
+      margin-top: 2%;
+      font-weight: 400;
+      font-size: 12px;
+      color: #000; }
+
+.footerBlock {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0; }
+  .footerBlock .socialBlock {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none; }
+    .footerBlock .socialBlock .socialItem {
+      color: #000;
+      opacity: 0.5;
+      font-weight: 400;
+      font-size: 14px; }
+
+/*# sourceMappingURL=main.css.map */

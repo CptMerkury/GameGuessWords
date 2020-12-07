@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="main.css">
+    <title>Game Guess Word</title>
+</head>
+<body>
+<header class="headerBlock">
+    <h1 class="headerTitle">Guess word game</h1>
+</header>
+<main class="mainBlock">
+    <div class="gameBlock">
+        <p id="rules">Write one letter in below</p>
+
+        <h2 id="word"></h2>
+        <input type="text" id="answerInput" autofocus="autofocus" />
+        <br/>
+        <button class="submitButton" type="submit" onclick="getLetter()">Guess</button>
+        <button class="exitButton" type="submit" onclick="exitGame()">Exit</button>
+        <p class="disclaimer">Use only RUSSIAN symbol</p>
+    </div>
+</main>
+<footer class="footerBlock">
+    <ul class="socialBlock">
+        <a href="https://www.instagram.com/maksyakubov/">
+            <li class="socialItem">Instagram</li>
+        </a>
+        <a href="https://twitter.com/MaksimMarsianin">
+            <li class="socialItem">Twitter</li>
+        </a>
+        <a href="https://vk.com/maks_yakuboff">
+            <li class="socialItem">VK</li>
+        </a>
+        <a href="https://github.com/CptMerkury">
+            <li class="socialItem">GitHub</li>
+        </a>
+    </ul>
+</footer>
+<script src="index.js"></script>
+</body>
+</html>
