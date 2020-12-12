@@ -39,11 +39,11 @@ let words = [
     "Девочка",
 ]
 
-let randomWord = words[Math.floor(Math.random() * words.length)]
+let randomWord = words[Math.floor(Math.random() * words.length)].toLowerCase()
 
 let answerArray = new Array(randomWord.length).fill("_")
 
-let remeaningLetters = randomWord.length
+let remainingLetters = randomWord.length
 
 let userLetter
 
@@ -53,24 +53,36 @@ document.getElementById("word").innerHTML = answerArray.join(" ")
 
 const exitGame = () => {
     document.getElementById("rules").innerHTML = "Спасибо за игру"
-    setTimeout(()=>{
+    setTimeout(() => {
         location.reload()
-    },1500)
+    }, 1500)
 }
 
 function chekValueLetter(letter) {
-    let guess = letter
+    let guess = letter.toLowerCase()
     for (let i = 0; i < randomWord.length; i++) {
-        if (randomWord[i].toLowerCase() === guess.toLowerCase()) {
-            answerArray[i] = guess
-            document.getElementById("word").innerHTML = answerArray.join(" ")
-            remeaningLetters--
+        switch (randomWord[i] === guess) {
+            case true :
+                document.getElementById("rules").innerHTML = "Угадал"
+                setTimeout(() => {
+                    document.getElementById("rules").innerHTML = "Напиши одну букву ниже"
+                }, 1500)
+                answerArray[i] = guess
+                document.getElementById("word").innerHTML = answerArray.join(" ")
+                remainingLetters--
+                break
+            case false:
+                document.getElementById("rules").innerHTML = "Не угадал"
+                setTimeout(() => {
+                    document.getElementById("rules").innerHTML = "Напиши одну букву ниже"
+                }, 1500)
+                break
         }
     }
-    if (remeaningLetters === 0) {
+    if (remainingLetters === 0) {
         setTimeout(() => {
             gameDone = true
-            alert("Поздравляю, ты угадал")
+            alert(`Поздравляю, ты угадал слово: ${randomWord}`)
             location.reload()
         }, 1500)
     }
@@ -81,30 +93,26 @@ const getLetter = () => {
     if (userLetter.length > 1) {
         document.getElementById("rules").innerHTML = "Напиши только одну букву"
         document.getElementById("answerInput").value = null
-        setTimeout(()=>{
+        setTimeout(() => {
             document.getElementById("rules").innerHTML = "Напиши одну букву ниже"
-        },1500)
-    }else if (Number(userLetter)) {
+        }, 1500)
+    } else if (Number(userLetter)) {
         document.getElementById("rules").innerHTML = "Исользуй только буквы"
         document.getElementById("answerInput").value = null
-        setTimeout(()=>{
+        setTimeout(() => {
             document.getElementById("rules").innerHTML = "Напиши одну букву ниже"
-        },1500)
-    }else if (userLetter === "") {
+        }, 1500)
+    } else if (userLetter === "") {
         document.getElementById("rules").innerHTML = "Ты не написал букву"
         document.getElementById("answerInput").value = null
-        setTimeout(()=>{
+        setTimeout(() => {
             document.getElementById("rules").innerHTML = "Напиши одну букву ниже"
-        },1500)
+        }, 1500)
     } else {
-        document.getElementById("rules").innerHTML = "Такой буквы в этом слове нет"
-        setTimeout(()=>{
-            document.getElementById("rules").innerHTML = "Напиши одну букву ниже"
-            document.getElementById("answerInput").value = null
-        },1500)
+        document.getElementById("answerInput").value = null
+        document.getElementById("answerInput").autofocus
         chekValueLetter(userLetter)
     }
-    document.getElementById("answerInput").autofocus
 }
 
 
