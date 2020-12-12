@@ -39,7 +39,7 @@ let words = [
     "Девочка",
 ]
 
-let randomWord = words[Math.floor(Math.random() * words.length)].toLowerCase()
+let randomWord = words[Math.floor(Math.random() * words.length)]
 
 let answerArray = new Array(randomWord.length).fill("_")
 
@@ -59,24 +59,26 @@ const exitGame = () => {
 }
 
 function chekValueLetter(letter) {
-    let guess = letter.toLowerCase()
+    let guess = letter
     for (let i = 0; i < randomWord.length; i++) {
-        switch (randomWord[i] === guess) {
-            case true :
+        switch (true) {
+            case (randomWord[i].toLowerCase() === guess.toLowerCase()):
+                answerArray[i] = guess
+                document.getElementById("word").innerHTML = answerArray.join(" ")
+                remainingLetters--
                 document.getElementById("rules").innerHTML = "Угадал"
                 setTimeout(() => {
                     document.getElementById("rules").innerHTML = "Напиши одну букву ниже"
                 }, 1500)
-                answerArray[i] = guess
-                document.getElementById("word").innerHTML = answerArray.join(" ")
-                remainingLetters--
-                break
-            case false:
+                break;
+            case (randomWord[i].toLowerCase() !== guess.toLowerCase()) :
+                document.getElementById("answerInput").value = null
+                document.getElementById("answerInput").autofocus
                 document.getElementById("rules").innerHTML = "Не угадал"
                 setTimeout(() => {
                     document.getElementById("rules").innerHTML = "Напиши одну букву ниже"
                 }, 1500)
-                break
+                break;
         }
     }
     if (remainingLetters === 0) {
