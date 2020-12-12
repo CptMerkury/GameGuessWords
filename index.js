@@ -100,11 +100,11 @@ const getLetter = () => {
         document.getElementById("rules").innerHTML = "Такой буквы в этом слове нет"
         setTimeout(()=>{
             document.getElementById("rules").innerHTML = "Напиши одну букву ниже"
+            document.getElementById("answerInput").value = null
         },1500)
-        document.getElementById("answerInput").value = null
-        document.getElementById("answerInput").autofocus
         chekValueLetter(userLetter)
     }
+    document.getElementById("answerInput").autofocus
 }
 
 
