@@ -97,6 +97,10 @@ const getLetter = () => {
             document.getElementById("rules").innerHTML = "Напиши одну букву ниже"
         },1500)
     } else {
+        document.getElementById("rules").innerHTML = "Такой буквы в этом слове нет"
+        setTimeout(()=>{
+            document.getElementById("rules").innerHTML = "Напиши одну букву ниже"
+        },1500)
         document.getElementById("answerInput").value = null
         document.getElementById("answerInput").autofocus
         chekValueLetter(userLetter)
